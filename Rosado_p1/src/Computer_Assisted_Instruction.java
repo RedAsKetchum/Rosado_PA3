@@ -1,9 +1,11 @@
 import java.security.SecureRandom;
 import java.util.Scanner;
+import java.lang.Math;
+import java.text.DecimalFormat;
 
 public class Computer_Assisted_Instruction {
 
-    //Variables
+    //Field Variables //Class Attributes
     static int difficulty, flag;
     static double inputAnswer,num1, num2, result; //Students answer with double precision floating point
     static double totalQuestions = 10;
@@ -13,6 +15,7 @@ public class Computer_Assisted_Instruction {
     static int typeOperation;
 
    static SecureRandom random = new SecureRandom();
+   static DecimalFormat df = new DecimalFormat("#.00");
 
     //Methods
     public static void setMath(){
@@ -40,7 +43,7 @@ public class Computer_Assisted_Instruction {
       }
     }
 
-    public static void setDifficulty(){
+    public static void setDifficulty(){   //sets amount of integers of operand
 
         System.out.println("--Difficulty Menu--");
         System.out.println("Choose from 1 up to 4 total digits.");
@@ -87,8 +90,9 @@ public class Computer_Assisted_Instruction {
             case 3: result =  num1 - num2;
                 System.out.println(i + ") How much is " + (int)num1 + " minus " + (int)num2 + "?");
                 break;
-            case 4: result =  num1 / num2;
+            case 4: result = num1/num2;
                 System.out.println(i + ") How much is " + (int) num1 + " divided by " + (int)num2 + "?");
+                //checks for full decimal places
                 break;
         }
     }
@@ -111,9 +115,6 @@ public class Computer_Assisted_Instruction {
                 break;
             case 4: result = num1 / num2;
                 System.out.println(i + ") How much is " + (int) num1 + " divided by " + (int)num2 + "?");
-
-                System.out.println("answer is: "+result);
-
                 break;
         }
     }
@@ -134,7 +135,7 @@ while(run==1) {
         Scanner scnr = new Scanner(System.in);
         inputAnswer = scnr.nextDouble();
 
-            if (inputAnswer==result) {//Students answer comparison with calculated result   FIXXXXXXXX comparison
+            if (Math.abs(inputAnswer - result) <0.0001) {//This is how you can compare double values in Java
 
             message = (random.nextInt(4) + 1);
 
