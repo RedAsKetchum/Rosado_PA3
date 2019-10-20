@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e5d3416-2a59-44f9-a689-a7c91d300c50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SavingsAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rosado_p1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rosado_p1/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +23,7 @@
   <component name="ProjectId" id="1SQeiXuzZ6RrGfryT1PZsYMvPR0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Rosado_p1" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
