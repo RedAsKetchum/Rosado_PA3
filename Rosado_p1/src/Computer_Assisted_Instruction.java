@@ -219,8 +219,8 @@ while(run==1) {
     else{
         System.out.println("Option does not exist. Goodbye!");
         break;
-    }
-}
+      }
+     }
     }
     //MAIN
     public static void main (String[] args){
