@@ -1,27 +1,23 @@
 import java.security.SecureRandom;
 import java.util.Scanner;
 import java.lang.Math;
-import java.text.DecimalFormat;
 
 public class Computer_Assisted_Instruction {
 
     //Field Variables //Class Attributes
-    static int difficulty, flag;
+    static int difficulty, flag, typeOperation;
     static double inputAnswer,num1, num2, result; //Students answer with double precision floating point
     static double totalQuestions = 10;
     static int i = 1;
     static int run =1;
     static double correct, wrong = 0;
-    static int typeOperation;
 
    static SecureRandom random = new SecureRandom();
-   static DecimalFormat df = new DecimalFormat("#.00");
+   static Scanner scnr = new Scanner (System.in);
 
     //Methods
     public static void setMath(){
         int input;
-        Scanner scnr = new Scanner (System.in);
-
 
         System.out.println("--Arithmetic Problem Type Menu--");
         System.out.println("Enter 1 for addition, 2 for multiplication, " +
@@ -46,12 +42,15 @@ public class Computer_Assisted_Instruction {
     public static void setDifficulty(){   //sets amount of integers of operand
 
         System.out.println("--Difficulty Menu--");
-        System.out.println("Choose from 1 up to 4 total digits.");
-        System.out.println("Enter option: ");
 
-        Scanner scnr = new Scanner(System.in);
-        difficulty = scnr.nextInt();
+            System.out.println("Choose from 1 up to 4 total digits.");
+            System.out.println("Enter option: ");
 
+            difficulty = scnr.nextInt();
+//if user enters any other number besides 1,2,3 or 4 it will ask again to select difficulty 1,2,3 or 4
+            if (difficulty != 1 && difficulty != 2 && difficulty != 3 && difficulty != 4) {
+               setDifficulty();
+            }
     }
 
     public static int getRand(){   //This method will set the amount of integers for each math operation
@@ -182,9 +181,12 @@ while(run==1) {
             }
             i++;
         }
+        System.out.println("");
     }
     double total = (correct / totalQuestions) * 100;
-    System.out.println("Your score is: " + total + "% !");
+    System.out.println("Total correct answers: "+ (int) correct);
+    System.out.println("Total wrong answers: "+ (int) wrong);
+    System.out.println("Your total score is: " + total + "%"); //percentage score
 
     if (total < 75.0) {
         System.out.println("Please ask your teacher for extra help.");
@@ -192,25 +194,40 @@ while(run==1) {
     else if(total>=75.0){
         System.out.println("Congratulations, you are ready to go to the next level!");
     }
+    System.out.println("End of session.");
     System.out.println("");
-    System.out.println("Next student's turn.");
-    System.out.println("Welcome! Let's learn math!");
 
-    //RESETTING PROGRAM...
-    setMath();
-    setDifficulty();
-    i = 1;
-    correct = 0;
-    wrong = 0;
-    flag=0;
+    System.out.println("Would you like to start a new session? Enter 1 for yes or 0 for no.");
+    int newSession = scnr.nextInt();
+
+    if(newSession==1) {
+
+        System.out.println("Welcome! Let's learn math!");
+
+        //RESETTING PROGRAM...
+        setMath();
+        setDifficulty();
+        i = 1;
+        correct = 0;
+        wrong = 0;
+        flag = 0;
+    }
+    else if(newSession==0){
+        System.out.println("Goodbye!");
+        break;
+    }
+    else{
+        System.out.println("Option does not exist. Goodbye!");
+        break;
+    }
 }
     }
     //MAIN
     public static void main (String[] args){
 
         System.out.println("Welcome! Let's learn math!");
-        setMath();
         setDifficulty();
+        setMath();
         newQuestion();
     }
 }
